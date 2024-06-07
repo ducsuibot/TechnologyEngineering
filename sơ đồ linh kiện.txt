@@ -1,0 +1,55 @@
+Để kết nối các linh kiện như cảm biến DHT21, cảm biến khí MQ135, MQ7, MQ2 và màn hình LCD I2C với Arduino, bạn cần theo dõi các bước dưới đây. Giả sử bạn đang sử dụng một board Arduino Uno.
+
+1. Kết nối màn hình LCD I2C
+Linh kiện:
+Màn hình LCD I2C (16x2 hoặc 20x4)
+4 dây nối (jumper wires)
+Sơ đồ kết nối:
+VCC (LCD) -> 5V (Arduino)
+GND (LCD) -> GND (Arduino)
+SDA (LCD) -> A4 (Arduino)
+SCL (LCD) -> A5 (Arduino)
+2. Kết nối cảm biến DHT21
+Linh kiện:
+Cảm biến DHT21
+3 dây nối (jumper wires)
+Điện trở 10kΩ (pull-up resistor)
+Sơ đồ kết nối:
+VCC (DHT21) -> 5V (Arduino)
+GND (DHT21) -> GND (Arduino)
+DATA (DHT21) -> D2 (Arduino)
+Điện trở 10kΩ nối giữa VCC và DATA của DHT21 (pull-up resistor)
+3. Kết nối các cảm biến khí MQ135, MQ7, MQ2
+Linh kiện:
+Cảm biến MQ135, MQ7, MQ2
+9 dây nối (jumper wires) (3 dây cho mỗi cảm biến)
+Sơ đồ kết nối:
+MQ135:
+VCC (MQ135) -> 5V (Arduino)
+GND (MQ135) -> GND (Arduino)
+AO (MQ135) -> A0 (Arduino)
+MQ7:
+VCC (MQ7) -> 5V (Arduino)
+GND (MQ7) -> GND (Arduino)
+AO (MQ7) -> A1 (Arduino)
+MQ2:
+VCC (MQ2) -> 5V (Arduino)
+GND (MQ2) -> GND (Arduino)
+AO (MQ2) -> A2 (Arduino)  
+ 
+ 
+ 
+ 
+Arduino Uno:
++------------------+
+|                  |
+| 5V --------------+----> VCC (LCD, DHT21, MQ135, MQ7, MQ2)
+| GND -------------+----> GND (LCD, DHT21, MQ135, MQ7, MQ2)
+| SDA (A4) --------+----> SDA (LCD)
+| SCL (A5) --------+----> SCL (LCD)
+| D2 --------------+----> DATA (DHT21) [with 10kΩ pull-up resistor to 5V]
+| A0 --------------+----> AO (MQ135)
+| A1 --------------+----> AO (MQ7)
+| A2 --------------+----> AO (MQ2)
+|                  |
++------------------+
